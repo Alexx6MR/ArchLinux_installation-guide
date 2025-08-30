@@ -7,7 +7,7 @@ I denna uppgift ska ni installera Arch Linux i en virtuell maskin. Utför alla s
 - Få en djupare förståelse för Linux som skrivbordsmiljö.
 - Få fördjupad kunskap om krypterade hårddiskar och partitioner i Linux.
 - Få förståelse för Linux uppstartsprocess och hur parametrar kan läggas till Linux-kärnan.
-- Få erfarenhet att på egen hand eller i grupp läsa och följa dokumentation samt lösa problem.
+- Få erfarenhet av att på egen hand eller i grupp läsa och följa dokumentation samt lösa problem.
 
 Uppgiften består av en obligatorisk grunddel och tre valfria bonusdelar som ger bonuspoäng.
 
@@ -26,7 +26,7 @@ Ert arbete ska resultera i två leveranser:
 - Använd filformatet [Markdown][md]. Visual Studio Code erbjuder ett användarvänligt stöd för Markdown, inklusive en praktisk förhandsgranskning.
 - Alla använda kommandon ska dokumenteras och förklaras. Det går bra att gruppera relaterade kommandon och skriva en gemensam förklaring för dem när det är lämpligt.
 - Använd [code blocks eller inline code][mdf] för alla kommandon och deras utmatning.
-- Använd screenshots vid behov, exempelvis för grafiska gränssnitt som Xorg, Wayland, GDM, Gnome, i3, Sway och eventuellt UI för backupprogrammet. Placera alla screenshots i katalogen `img/` och länka in dem i rapporten så att de syns korrekt i förhandsgranskningen.
+- Använd screenshots vid behov, exempelvis för grafiska gränssnitt som Xorg, GDM, GNOME, i3 och eventuellt UI för backupprogrammet. Placera alla screenshots i katalogen `img/` och länka in dem i rapporten så att de syns korrekt i förhandsgranskningen.
 
 ### Muntligt för utbildaren
 
@@ -100,34 +100,21 @@ Gå igenom hela uppgiften tillsammans i gruppen och prata om hur ni tolkar varje
       sudo ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
       ```
 
-      *Förklaring:* `systemd-resolved` hanterar DNS-inställningar. Länken till `/etc/resolv.conf` måste skapas **efter** att tjänsten har startats för att DNS ska fungera.
+      *Förklaring:* `systemd-resolved` hanterar DNS-inställningar. Länken till `/etc/resolv.conf` måste skapas **efter** att tjänsten har startats för att namnuppslag ska fungera.
 
-3. Installera microcode för Intel/AMD (även om det inte påverkar i VM).
+3. Installera microcode för Intel/AMD (även om det inte påverkar något i en VM).
 
 4. Installera `locate`.
 
 #### Färdig desktop
 
 Det sista steget är att installera en grafisk skrivbordsmiljö som **GNOME** – en användarvänlig och modern skrivbordsmiljö.
-**GNOME** kan köras ovanpå **Xorg** eller **Wayland**. Båda är displaytekniker som hanterar grafiska fönster i Linux.
 
-För inloggningsskärmen använder vi GNOME Display Manager (GDM). Den låter dig välja skrivbordsmiljö (t.ex. “GNOME” eller “GNOME on Xorg”)
+Vi kör **GNOME** ovanpå den klassiska displaytekniken **Xorg**, eftersom det modernare alternativet **Wayland** kräver hårdvaruaccelererad grafik, vilket inte stöds på studentdatorerna.
 
-##### Xorg eller Wayland
-
-Undersök för- och nackdelar innan ni väljer mellan Xorg och Wayland och genomför relevant underrubrik.
-
-##### Xorg
+För inloggningsskärmen använder vi GNOME Display Manager (GDM). Den låter dig välja skrivbordsmiljö (t.ex. “GNOME” eller "i3").
 
 - Installera Xorg – en traditionell displayserver som länge varit standard i Linux.
-
-- Installera GNOME.
-
-- Installera GDM.
-
-##### Wayland
-
-(Ingen separat installation krävs för Wayland – stöd ingår i GNOME och GDM).
 
 - Installera GNOME.
 
@@ -137,31 +124,22 @@ Undersök för- och nackdelar innan ni väljer mellan Xorg och Wayland och genom
 
 #### Lyxprompt (1 poäng)
 
-- Installera kommandoskalet **Zsh** som ett alternativ till Bash och konfigurera det med **Oh My Zsh** med ett valfritt tema.
+- Installera kommandoskalet **Zsh**.
+- Installera och konfigurera **Oh My Zsh** för Zsh med ett valfritt tema.
+- Installera och konfigurera **Starship** för Bash som standardprompt.
 
-- Installera och konfigurera **Starship prompt** för Bash som standardprompt.
+#### Upplev en tiling-fönsterhanterare: i3
 
-#### Upplev en tiling-fönsterhanterare: i3 eller Sway (2 poäng)
-
-En sak som skiljer arbetsmiljön i Linux från andra operativsystem är att den är mycket modulär. Det gör det möjligt att använda kraftfulla, men mindre kommersiellt vanliga, upplägg.
+En sak som skiljer arbetsmiljön i Linux från andra operativsystem är att det är mycket modulärt. Det gör det möjligt att använda kraftfulla, men mindre kommersiellt vanliga upplägg.
 
 Ett exempel är tiling-fönsterhanterare, som automatiskt placerar fönster och låter dig styra det mesta via tangentbordet.
 
-##### Xorg eller Wayland
+- Installera fönsterhanteraren [i3][i3] och statusfältet [Polybar][plyb], där det sistnämda ska användas i stället för det enkla standardstatusfältet i3status.
+- Behåll GNOME så att det kan väljas via GDM vid inloggning.
 
-Ert tidigare val mellan Xorg och Wayland påverkar vilken underrubrik ni följer nedan. Behåll GNOME installerat så att det är valbart via GDM vid inloggning.
+##### Flexibilitet
 
-###### Xorg
-
-- Installera fönsterhanteraren [i3][i3] och ersätt det enkla standardstatusfältet i3status med det externa programmet [Polybar][plyb].
-
-###### Wayland
-
-- Installera fönsterhanteraren [Sway][sway] och ersätt det enkla standardstatusfältet i3status med det externa programmet [Waybar][wayb].
-
-###### Flexibilitet
-
-- Ni kan även välja andra alternativ, om ni är beredda att arbeta ännu mer självständigt, så länge följande uppfylls:
+Ni kan även välja andra alternativ, om ni är beredda att arbeta ännu mer självständigt, så länge följande uppfylls:
 
 - Installera en valfri tiling-fönsterhanterare och byt ut dess standardstatusfält mot ett externt program.
 
@@ -173,21 +151,19 @@ Alla i gruppen måste som minst lära sig att endast använda tangentbordet för
 
 - Starta ett nytt terminalfönster.
 - Flytta fokus från ett fönster till ett annat.
-- Stäng fönstret i fokus.
+- Stänga fönstret i fokus.
 
 #### Schemalagd backup mellan Arch och en annan dator  (2 poäng)
 
-Skapa en periodiskt körande backup från uppgiftens dator till en annan dator via nätverket.
+Skapa en backup som körs periodiskt från uppgiftens dator till en annan dator via nätverket.
 
 Backupen ska:
 
-- Använda ett dedikerat backupprogram, inte enbart filkopiering (exempel på inte godkända verktyg: `rsync`, `rclone`, `scp`).
+- Använda ett dedikerat backupprogram, inte enbart filkopiering (exempel på verktyg som inte är godkända: `rsync`, `rclone`, `scp`).
 
 - Köras automatiskt vid bestämda intervall (t.ex. med systemd timer eller cron).
 
 - Kunna återställa tidigare versioner av filer (versionering/snapshots).
-
-- Vara möjligt att använda i en professionell miljö (stöd för kryptering, deduplicering eller fjärrlagring är plus).
 
 Exempel på godkända verktyg: Restic, BorgBackup (gärna med Vorta), Duplicati, Déjà Dup.
 
@@ -203,7 +179,7 @@ Andra verktyg får användas om de uppfyller kriterierna.
 
 ## Tips
 
-- Ta snapshot innan större steg – det är nästan alltid det enklaste sättet att backa.
+- Ta ett snapshot innan större steg – det är nästan alltid det enklaste sättet att backa.
 
 - Håll din egen virtuella maskin uppdaterad så att du kan följa med i arbetet och testa själv.
 
@@ -213,7 +189,7 @@ Andra verktyg får användas om de uppfyller kriterierna.
 
 - Om omstarten misslyckas och ingen GRUB-meny visas – och ni saknar snapshot: starta från Arch-installationsmediet, lås upp LUKS, montera och fortsätt via `arch-chroot` i stället för att börja om.
 
-- Använd [Arch Wiki][aw] och den officiella dokumentationen för er tiling-fönsterhanterare och eventuell backuplösning.
+- Använd [Arch Wiki][aw] och den officiella dokumentationen för de valfria bonusdelarna.
 
 ## Filer att lämna in
 
@@ -237,6 +213,4 @@ När inlämningen är gjord i Git ska gruppen även göra en muntlig redovisning
 [mdf]: https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#quoting-code
 [plyb]: https://github.com/polybar/polybar
 [sgc]: https://github.com/nackc8/kursmaterial/blob/main/shared/studentguide-till-github-classroom.md
-[sway]: https://swaywm.org/
 [uefi]: https://en.wikipedia.org/wiki/UEFI
-[wayb]: https://github.com/Alexays/Waybar
