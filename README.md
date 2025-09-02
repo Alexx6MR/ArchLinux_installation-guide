@@ -128,7 +128,7 @@ För inloggningsskärmen använder vi GNOME Display Manager (GDM). Den låter di
 - Installera och konfigurera **Oh My Zsh** för Zsh med ett valfritt tema.
 - Installera och konfigurera **Starship** för Bash som standardprompt.
 
-#### Upplev en tiling-fönsterhanterare: i3
+#### Tiling-fönsterhanterare (2 poäng)
 
 En sak som skiljer arbetsmiljön i Linux från andra operativsystem är att det är mycket modulärt. Det gör det möjligt att använda kraftfulla, men mindre kommersiellt vanliga upplägg.
 
