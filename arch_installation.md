@@ -613,7 +613,6 @@ mkinitcpio -P
 ```
 - `mkinitcpio -P`: generates the initramfs image used by the kernel at boot time.
 
-
 ### 8.3 Installation of GRUB
 This section installs the GRUB boot loader to the EFI partition, allowing the UEFI firmware to detect and load the operating system from the encrypted root partition.
 
@@ -639,7 +638,6 @@ EFI grub initramfs-linux-fallback.img initramfs-linux.img vmlinuz-linux
 ### 8.4 Configuring GRUB
 This step installs and configures the GRUB boot loader, which is essential for the system to load the kernel and, if applicable, unlock the encrypted root partition at startup. This ensures the computer can boot properly in UEFI mode and manage multiple operating systems if necessary.
 
-
 **1.** Copy the encrypted device UUID into grub. Go to the end of the grub file and cut the UUIDs and paste them on the line that says  `GRUB_CMDLINE_LINUX_DEFAULT=`
 
 **Command:**
@@ -650,7 +648,6 @@ blkid -o value -s UUID /dev/sda2 >> /etc/default/grub
 ``` bash
 cryptdevice=UUID=<uuid-of-sda2>:cryptroot
 ```
-
 
 **2.** Do the same here but with `cryptroot`.
 
@@ -663,7 +660,6 @@ blkid -o value -s UUID /dev/mapper/cryptroot >> /etc/default/grub
 ``` bash
 root=UUID=<uuid-of-cryptroot>
 ```
-
 
 **Expected result:**\
 ``` bash
@@ -683,7 +679,6 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 ## 9 Installing and Enabling Features before reboot
 
-
 ### 9.1 Installation Graphic Desktop
 In this section, a complete graphical environment is installed, allowing the user to interact with the system through a modern and user-friendly interface instead of just the terminal. It involves installing Xorg, which provides the graphical foundation, and a desktop environment such as GNOME.
 
@@ -697,7 +692,8 @@ sudo pacman -S gnome gnome-tweaks gdm xorg-server xorg-xinit
 - `xorg-server`: This is the main graphical server that manages displays, input, and rendering.
 - `xorg-xinit`: Allows you to start graphical sessions manually using the startx command.
 
-- Enable the gaphic dekstop
+### Enable the gaphic dekstop
+**Command:**
 ``` bash
 systemctl enable gdm
 ```
