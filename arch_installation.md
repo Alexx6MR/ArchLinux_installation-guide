@@ -412,18 +412,7 @@ cat /etc/crypttab
 cryptstorage  UUID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX  /etc/storagekey  luks
 ```
 
-**4.** Next, edit the /etc/fstab file to ensure the unlocked volume is automatically mounted at /storage once it has been decrypted.
-
-**Command:**
-``` bash
-blkid -o value -s UUID /dev/mapper/cryptstorage >> /etc/fstab
-nano /etc/fstab
-```
-
-- Add this line to the file.
-``` bash
-UUID=<UUID_of_/dev/mapper/cryptstorage>   /storage   ext4   defaults   0 2
-```
+**4.** Create /storage folder to ensure that the partition will be created in the right place.
 
 ``` bash
 mkdir -p /storage
