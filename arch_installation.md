@@ -692,10 +692,11 @@ sudo pacman -S gnome gnome-tweaks gdm xorg-server xorg-xinit
 - `xorg-server`: This is the main graphical server that manages displays, input, and rendering.
 - `xorg-xinit`: Allows you to start graphical sessions manually using the startx command.
 
-### Enable the gaphic dekstop
+### Enable features
+
 **Command:**
 ``` bash
-systemctl enable gdm
+systemctl enable gdm NetworkManager
 ```
 
 **Controll**
