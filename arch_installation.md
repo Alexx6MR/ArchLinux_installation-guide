@@ -568,7 +568,8 @@ In this step, the `mlocate` package is installed to provide the `locate` command
 **Command:**
 ```bash
 sudo pacman -S plocate
-systemctl enable --now plocate-updatedb.timer
+systemctl enable plocate-updatedb.timer
+sudo updatedb
 locate fstab
 systemctl status plocate-updatedb.timer
 ```
