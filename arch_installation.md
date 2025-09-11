@@ -594,8 +594,6 @@ In this section, the system is configured to boot securely from an encrypted roo
 ### 8.1 Read encrypted root partition during boot.
 This section configures the system to detect and unlock the LUKS-encrypted root partition during boot, ensuring secure access to the root file system before loading the rest of the operating system.
 
-fix: si no funciona pon `lvm2` entre `encrypt` y `filesystems`.
-
 **Command:**
 ```bash
 nano /etc/mkinitcpio.conf
