@@ -701,13 +701,12 @@ In this section, a complete graphical environment is installed, allowing the use
 
 **Command:** 
 ``` bash
-sudo pacman -S gnome gnome-tweaks gdm xorg-server xorg-apps xorg-xinit
+sudo pacman -S gnome gnome-tweaks gdm xorg-server xorg-xinit
 ```
 - `gnome`: Installs the complete GNOME desktop environment, including all core applications.
 - `gnome-tweaks`: Allows you to customize and tweak advanced GNOME settings.
 - `gdm`:Provides a graphical login screen for managing users and sessions.
 - `xorg-server`: This is the main graphical server that manages displays, input, and rendering.
-- `xorg-apps`:  Includes basic utilities needed to work with Xorg, such as configuration tools.
 - `xorg-xinit`: Allows you to start graphical sessions manually using the startx command.
 
 - Enable the gaphic dekstop
