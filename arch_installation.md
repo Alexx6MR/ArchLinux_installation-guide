@@ -830,7 +830,7 @@ In this step, you configure a backup system to automatically create and manage s
 **Command:** 
 ``` bash
 sudo pacman -S restic
-sudo restic init --repo storage/backup
+sudo restic init --repo /storage/backup
 sudo restic -r /storage/backup backup /home/alex
 ```
 - `restic`: Restic is a fast, secure, console-based backup tool that encrypts and deduplicates data to create and restore local or remote snapshots.
