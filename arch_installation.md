@@ -913,3 +913,19 @@ systemctl list-timers | grep restic
 Thu 2025-09-11 01:00:00 CEST     1h 16min -
 - restic-backup.timer            restic-backup.service    
 ```
+### 14.4 Restore Snapshot
+**Command:**
+``` bash
+restic -r /storage/backup snapshots
+```
+**Expected result:**\
+``` bash
+ID        Date                Host        Tags        Paths
+----------------------------------------------------------------------
+a1b2c3d4  2025-09-10 03:00    your-host                /home/alex
+d5e6f7g8  2025-09-11 03:00    your-host                /home/alex  
+```
+**Command:**
+``` bash
+restic -r /storage/backup restore a1b2c3d4 --target /home/alex-restore
+```
