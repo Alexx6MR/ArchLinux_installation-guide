@@ -845,7 +845,7 @@ This step configures a **systemd timer** to automatically run scheduled Restic b
 
 **Command:**
 ``` bash
-nano /etc/systemd/system/restic-backup.service
+sudo nano /etc/systemd/system/restic-backup.service
 ```
 
 - Add this line to the file.
@@ -901,7 +901,7 @@ Thu 2025-09-11 01:00:00 CEST     1h 16min -
 ### 14.4 Restore Snapshot
 **Command:**
 ``` bash
-restic -r /storage/backup snapshots
+sudo restic -r /storage/backup snapshots
 ```
 **Expected result:**\
 ``` bash
@@ -912,5 +912,5 @@ d5e6f7g8  2025-09-11 03:00    your-host                /home/alex
 ```
 **Command:**
 ``` bash
-restic -r /storage/backup restore a1b2c3d4 --target /home/alex-restore
+sudo restic -r /storage/backup restore a1b2c3d4 --target /home/alex-restore
 ```
