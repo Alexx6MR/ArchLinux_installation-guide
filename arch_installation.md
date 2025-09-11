@@ -5,7 +5,7 @@
 Alexei Martinez Rodriguez  
 DevOps 2024: Linux 2  
 Kent Larsson
-2025-08-28  
+2025-09-11  
 
 ---
 
