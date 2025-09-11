@@ -899,6 +899,7 @@ Thu 2025-09-11 01:00:00 CEST     1h 16min -
 - restic-backup.timer            restic-backup.service    
 ```
 ### 14.4 Restore Snapshot
+Sometime we need to check all ours backups. this is the way
 **Command:**
 ``` bash
 sudo restic -r /storage/backup snapshots
@@ -910,6 +911,7 @@ ID        Date                Host        Tags        Paths
 a1b2c3d4  2025-09-10 03:00    your-host                /home/alex
 d5e6f7g8  2025-09-11 03:00    your-host                /home/alex  
 ```
+#### If we want to restore one snapshot, use this command.
 **Command:**
 ``` bash
 sudo restic -r /storage/backup restore a1b2c3d4 --target /home/alex-restore
